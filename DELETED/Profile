@@ -1,0 +1,120 @@
+import React, {SyntheticEvent, useEffect, useState} from 'react';
+import Layout from "../src/components/Layout";
+import axios from "axios";
+import {Profile as Role} from "../src/models/Profile";
+
+const Profile = () => {
+    const [profile,setProfile] = useState<Role[]>([])
+    useEffect(()=>{
+        (
+            async ()=>{
+                const {data} = await axios.get("profiles")
+                setProfile(data)
+                console.log(data)
+            }
+        ) ()
+
+    } , [])
+
+
+
+    const [role, setRole] = useState<Role|any>({})
+
+    const submit =  (e: SyntheticEvent) => {
+        e.preventDefault();
+        console.log("Submitting")
+        console.log(role)
+
+    }
+
+    return (
+        <Layout>
+            <div>
+
+                <div className="row  mt-5">
+
+
+                    <div className=" col-md-3 d-flex justify-content-center">
+                        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add New Profile</button>
+                    </div>
+
+                    <div className=" col-md-4 d-flex justify-content-center">
+                        <div className="col-md-8">
+                            <h2>
+                                Your Profiles
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="mt-5">
+
+
+                </div>
+
+                <div className="container">
+                    <div className="row">
+
+                        {profile.map(profile=>{
+
+                        return (
+                            <div className="col-sm-4" key={profile.ID}>
+                                <div className="card" >
+                                    <img src="..." className="card-img-top" alt="..."/>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{profile.name}</h5>
+                                        <p className="card-text">{profile.heading}</p>
+                                        <a href="#" className="btn btn-primary">EDIT{profile.active}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+
+                        })}
+
+                    </div>
+
+                </div>
+
+
+                <div className="modal fade" id="staticBackdrop" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Add New Profile Form</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                <form onSubmit={submit}>
+                                    <div className="mb-3">
+                                        <label className="form-label">Profile Name</label>
+                                        <input type="text" className="form-control" id="profilename" name="profilename"
+                                               onChange={e => setRole((prevState)=>({}) {name: e.target.value})}
+                                               placeholder="Profile Name"/>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Profile Heading</label>
+                                        <input type="text" className="form-control" id="profileheading" name="profileheading"
+                                               onChange={e => ({heading: e.target.value})}
+                                               placeholder="Profile Heading"/>
+                                    </div>
+
+
+                                    <div className="modal-footer d-block">
+                                        <button className="btn btn-warning float-end">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </Layout>
+    );
+};
+
+export default Profile;

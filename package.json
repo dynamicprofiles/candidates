@@ -1,0 +1,70 @@
+{
+  "name": "react-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.4.0",
+    "@react-pdf/renderer": "^2.1.1",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.0",
+    "@types/moment-precise-range-plugin": "^0.2.0",
+    "@types/node": "^16.11.21",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "axios": "^0.25.0",
+    "bootstrap": "^5.1.3",
+    "emailjs-com": "^3.2.0",
+    "html-to-image": "^1.9.0",
+    "html-to-pdfmake": "^2.3.9",
+    "jspdf": "^2.5.1",
+    "moment": "^2.29.1",
+    "moment-precise-range-plugin": "^1.3.0",
+    "pdfmake": "^0.2.4",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.1.1",
+    "react-dom": "^17.0.2",
+    "react-gridlist": "^1.1.0",
+    "react-modal": "^3.14.4",
+    "react-native-exit-app": "^1.1.0",
+    "react-responsive-modal": "^6.2.0",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "react-to-pdf": "0.0.14",
+    "redocx": "^1.1.4",
+    "typescript": "^4.5.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/html-to-pdfmake": "^2.1.0",
+    "@types/react-modal": "^3.13.1",
+    "@types/react-router-dom": "^5.3.3"
+  }
+}
